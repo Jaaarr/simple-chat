@@ -1,0 +1,16 @@
+<div class="container w-50">  
+  <div class="text-end mb-2 mx-2">
+  
+    <%= link_to "Создать новый чат", 
+        new_chat_path, 
+        class: "btn btn-outline-success",
+        data: { turbo_frame: dom_id(Chat.new) } %>
+  </div>
+  <div class="my-2">
+    <%= turbo_frame_tag Chat.new %>
+  </div>
+
+  <%= turbo_frame_tag 'chats' do %>
+    <%= render @chats %>
+  <% end %>
+<div>

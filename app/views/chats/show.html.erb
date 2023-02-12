@@ -1,0 +1,17 @@
+<%= turbo_stream_from "messages" %>
+<div class="container w-50">
+  <h4 class="text-center"><%= @chat.title %></h4>
+
+  <%= turbo_frame_tag Message.new do %>
+    <%= render @messages %>
+  <% end %>
+
+  <div class="sticky-bottom">
+    <%= form_with model: [@chat, @chat.messages.build] do |f| %> 
+      <div class="input-group">
+        <%= f.text_field :body, class: "form-control" %>
+        <%= f.submit "Отправить", class: "btn btn-outline-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>

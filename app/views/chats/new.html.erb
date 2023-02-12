@@ -1,0 +1,8 @@
+<%= turbo_frame_tag @chat do %>
+  <%= form_with model: @chat, class: "form-inline" do |f| %>
+    <div class="input-group">
+        <%= f.text_field :title,  class: "form-control" %>
+        <%= f.submit "Создать чат", class: "btn btn-outline-success" %>
+    </div>
+  <% end %>
+<% end %>
